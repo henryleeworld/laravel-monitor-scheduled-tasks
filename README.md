@@ -1,4 +1,4 @@
-# Laravel 7 監控排程任務
+# Laravel 8 監控排程任務
 
 引入 spatie 的 laravel-schedule-monitor 套件來擴增排程任務的監控，監控 Laravel 指令排程器排定，每當計劃任務開始，結束，失敗或被跳過時，它將在資料庫中的日誌表中寫入一筆紀錄。
 
@@ -35,5 +35,5 @@ $ php artisan schedule-monitor:list
 ![](https://i.imgur.com/wxBgYmm.png)
 > 將任務排程表與資料庫同步
 
-![](https://i.imgur.com/4IPNmuH.png)
+![](https://i.imgur.com/jogVSUi.png)
 > 查看任務排程表
