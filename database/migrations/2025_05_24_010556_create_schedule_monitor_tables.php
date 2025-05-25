@@ -4,12 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScheduleMonitorTables extends Migration
+return new class extends Migration
 {
-    public function up()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::create('monitored_scheduled_tasks', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
 
             $table->string('name');
             $table->string('type')->nullable();
@@ -31,14 +34,14 @@ class CreateScheduleMonitorTables extends Migration
 
 
         Schema::create('monitored_scheduled_task_log_items', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
 
             $table->unsignedBigInteger('monitored_scheduled_task_id');
             $table
                 ->foreign('monitored_scheduled_task_id', 'fk_scheduled_task_id')
                 ->references('id')
                 ->on('monitored_scheduled_tasks')
-                ->cascadeOnDelete();
+                ->onDelete('cascade');
 
             $table->string('type');
 
@@ -47,4 +50,4 @@ class CreateScheduleMonitorTables extends Migration
             $table->timestamps();
         });
     }
-}
+};
